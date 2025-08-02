@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="start-screen" class="screen active">
+            <h1>Welcome to the General Knowledge Quiz!</h1>
+            <p>Test your knowledge and see how well you do under pressure.</p>
+            <button id="start-btn" class="main-btn">Start Quiz</button>
+        </div>
+
+        <div id="level-screen" class="screen">
+            <h1>Choose Your Difficulty</h1>
+            <div class="btn-container level-selection">
+                <button class="level-btn main-btn" data-level="easy">Easy</button>
+                <button class="level-btn main-btn" data-level="medium">Medium</button>
+                <button class="level-btn main-btn" data-level="hard">Hard</button>
+            </div>
+            <button id="back-to-start-btn" class="main-btn small-btn">Back</button>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div id="timer" class="timer-display">Time Left: <span id="time">60</span>s</div>
+            <h1>General Knowledge Quiz</h1>
+            <div class="progress-tracker">Question <span id="current-question-num">1</span> of <span id="total-questions-num">10</span></div>
+            <div id="quiz">
+                <h2 id="question">Question text will go here</h2>
+                <div id="answer-buttons" class="btn-container">
+                    </div>
+                <div id="feedback-message" class="feedback-message"></div>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h1>Quiz Finished!</h1>
+            <p id="final-score"></p>
+            <p id="time-status"></p>
+            <div class="result-actions">
+                <button id="review-answers-btn" class="main-btn small-btn">Review Answers</button>
+                <button id="view-leaderboard-btn" class="main-btn small-btn">View Leaderboard</button>
+            </div>
+            <button id="play-again-btn" class="main-btn">Play Again</button>
+        </div>
+
+        <div id="review-screen" class="screen">
+            <h1>Your Answers</h1>
+            <div id="review-content" class="review-content">
+                </div>
+            <button id="back-to-results-from-review-btn" class="main-btn small-btn">Back to Results</button>
+        </div>
+
+        <div id="leaderboard-screen" class="screen">
+            <h1>Top Scores</h1>
+            <div id="leaderboard-list">
+                <p>No scores yet.</p>
+            </div>
+            <button id="back-to-results-from-leaderboard-btn" class="main-btn small-btn">Back to Results</button>
+            <button id="clear-leaderboard-btn" class="main-btn small-btn clear-btn">Clear Leaderboard</button>
+        </div>
+    </div>
+
+    <audio id="correct-audio" src="correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-audio" src="incorrect.mp3" preload="auto"></audio>
+    <audio id="start-audio" src="start_quiz.mp3" preload="auto"></audio>
+    <audio id="end-audio" src="quiz_end.mp3" preload="auto"></audio>
+    <audio id="time-warning-audio" src="time_warning.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
+</body>
+</html>
